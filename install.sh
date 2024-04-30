@@ -53,9 +53,22 @@ esac
 echo -e "${GREEN}-==Installing NvChad ...==-${NC}"
 git clone https://github.com/NvChad/starter ~/.config/nvim --depth 1
 
+# open NvChad for the first time to download lazy plugin
+echo -e "${WHITE}The Script will open neovim to install lazy plugin. ${RED} after installation was done, quit using :qa command${NC}"
+
+# Ask user for confirmation
+read -p "type (yes) to continue => " response
+case "$response" in
+ [yY][eE][sS]|[yY]) 
+     # open Neovim
+     nvim
+     ;;
+esac
+
+
 #  Cloning Repository
 echo -e "${GREEN}-==Cloning Repository ...==-${NC}"
-git clone https://github.com/h3li0p4us3/neovim-cpp.git > /dev/null 2>&1
+git clone https://github.com/h3li0p4us3/neovim-cpp.git
 # Navigate to the cloned directory
 cd neovim-cpp
 
@@ -65,7 +78,7 @@ rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.co
 
 #  Adding Command
 # Display a warning message (for MasonInstallAll)
-echo -e "${WHITE}Neovim is about to open to install needed packages, after it downloaded the packages, quit neovim with quit command! and wait for script to do the rest.${NC}"
+echo -e "${WHITE}Neovim is about to open to install needed packages, after it downloaded the packages, quit neovim with :qa command! and wait for script to do the rest.${NC}"
 
 # Ask user for confirmation
 read -p "Do you understand the instructions? (yes/no) " response
@@ -89,6 +102,6 @@ echo -e "${GREEN}-==Removing MasonInstallAll Command==-${NC}"
 sed -i '/^vim.cmd("MasonInstallAll")$/d' ~/.config/nvim/init.lua
 
 #  Removing Directory
-echo -e "${GREEN}-==Removing necessary files==-${NC}"
+echo -e "${GREEN}-==Removing unnecessary files==-${NC}"
 # Remove the cloned directory
 rm -rf ../neovim-cpp
