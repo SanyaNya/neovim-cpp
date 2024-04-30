@@ -51,17 +51,17 @@ esac
 
 # Install NvChad
 echo -e "${GREEN}-==Installing NvChad ...==-${NC}"
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 > /dev/null 2>&1
+git clone https://github.com/NvChad/starter ~/.config/nvim --depth 1
 
 #  Cloning Repository
 echo -e "${GREEN}-==Cloning Repository ...==-${NC}"
-git clone https://github.com/dreamsofcode-io/neovim-cpp.git > /dev/null 2>&1
+git clone https://github.com/h3li0p4us3/neovim-cpp.git > /dev/null 2>&1
 # Navigate to the cloned directory
 cd neovim-cpp
 
 #  Copying Files
 echo -e "${GREEN}-==Copying Files==-${NC}"
-rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/custom
+rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/
 
 #  Adding Command
 # Display a warning message (for MasonInstallAll)

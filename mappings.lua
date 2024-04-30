@@ -1,17 +1,17 @@
-local M = {}
+require "nvchad.mappings"
 
-M.dap = {
-  plugin = true,
-  n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line",
-    },
-    ["<leader>dr"] = {
-      "<cmd> DapContinue <CR>",
-      "Start or continue the debugger",
-    }
-  }
-}
+-- add yours here
 
-return M
+local map = vim.keymap.set
+
+-- Your custom mappings
+map("n", ";", ":", { desc = "CMD enter command mode" })
+map("i", "jk", "<ESC>")
+
+-- Migrating your dap mappings
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
+
+-- Uncomment and adjust the save mapping as needed
+-- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
