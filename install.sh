@@ -65,13 +65,6 @@ case "$response" in
      ;;
 esac
 
-
-#  Cloning Repository
-echo -e "${GREEN}-==Cloning Repository ...==-${NC}"
-git clone https://github.com/dreamsofcode-io/neovim-cpp.git
-# Navigate to the cloned directory
-cd neovim-cpp
-
 #  Copying Files
 echo -e "${GREEN}-==Copying Files==-${NC}"
 rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/
@@ -100,8 +93,3 @@ esac
 echo -e "${GREEN}-==Removing MasonInstallAll Command==-${NC}"
 # Remove the command from init.lua
 sed -i '/^vim.cmd("MasonInstallAll")$/d' ~/.config/nvim/init.lua
-
-#  Removing Directory
-echo -e "${GREEN}-==Removing unnecessary files==-${NC}"
-# Remove the cloned directory
-rm -rf ../neovim-cpp
