@@ -53,6 +53,10 @@ esac
 echo -e "${GREEN}-==Installing NvChad ...==-${NC}"
 git clone https://github.com/NvChad/starter ~/.config/nvim --depth 1
 
+#  Copying Files
+echo -e "${GREEN}-==Copying Files==-${NC}"
+rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/
+
 # open NvChad for the first time to download lazy plugin
 echo -e "${WHITE}The Script will open neovim to install lazy plugin. ${RED} after installation was done, quit using :qa command${NC}"
 
@@ -64,10 +68,6 @@ case "$response" in
      nvim
      ;;
 esac
-
-#  Copying Files
-echo -e "${GREEN}-==Copying Files==-${NC}"
-rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/
 
 #  Adding Command
 # Display a warning message (for MasonInstallAll)
