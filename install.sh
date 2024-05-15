@@ -33,23 +33,28 @@ fi
 echo -e "${WHITE}The Script will open neovim to install plugins. ${RED} after installation was done, quit using :qa command${NC}"
 
 #  Backup Operation
-echo -e "${GREEN}-==Backup Operation==-${NC}"
-# Ask user if they want to create a backup
-read -p "Do you want to create a backup of your current .config/nvim directory? (yes/no) " response
-case "$response" in
- [yY][eE][sS]|[yY]) 
-   # Check if the backup directory exists
-   if [ ! -d ~/.config/nvim-backup ]; then
-    mkdir ~/.config/nvim-backup
-   fi
-   # Create a timestamped backup of the .config/nvim directory
-   timestamp=$(date +%Y%m%d-%H%M%S)
-   cp -r ~/.config/nvim ~/.config/nvim-backup/$timestamp
-   ;;
- *)
-   echo -e "${WHITE}Skipping backup...${NC}"
-   ;;
-esac
+if [ -d ~/.config/nvim ]; then
+ echo -e "${GREEN}-==Backup Operation==-${NC}"
+ # Ask user if they want to create a backup
+ read -p "Do you want to create a backup of your current .config/nvim directory? (yes/no) " response
+ case "$response" in
+  [yY][eE][sS]|[yY])
+    # Check if the backup directory exists
+    if [ ! -d ~/.config/nvim-backup ]; then
+     mkdir ~/.config/nvim-backup
+    fi
+    # Create a timestamped backup of the .config/nvim directory
+    timestamp=$(date +%Y%m%d-%H%M%S)
+    mv ~/.config/nvim ~/.config/nvim-backup/$timestamp
+    ;;
+  *)
+    echo -e "${WHITE}Skipping backup...${NC}"
+    ;;
+ esac
+fi
+
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
 
 # Install NvChad
 echo -e "${GREEN}-==Installing NvChad ...==-${NC}"
