@@ -64,6 +64,7 @@ return {
           "clangd",
           "clang-format",
           "codelldb",
+          "lua-language-server",
           "tree-sitter-cli",
         },
       },
