@@ -2,6 +2,7 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
+capabilities.offsetEncoding = { "utf-16" }
 
 local lspconfig = require "lspconfig"
 local servers = { "clangd", "lua_ls" }
