@@ -65,4 +65,4 @@ echo -e "${GREEN}-==Copying Files==-${NC}"
 rsync -av --exclude='README.md' --exclude='.git/' --exclude='install.sh' . ~/.config/nvim/lua/
 
 nvim "+Lazy! sync" "+qa"
-nvim "+MasonInstallAll"
+nvim "+MasonInstall clangd clang-format codelldb lua-language-server tree-sitter-cli"

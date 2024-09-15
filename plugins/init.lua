@@ -59,15 +59,6 @@ return {
     },
     {
       "williamboman/mason.nvim",
-      opts = {
-        ensure_installed = {
-          "clangd",
-          "clang-format",
-          "codelldb",
-          "lua-language-server",
-          "tree-sitter-cli",
-        },
-      },
     },
     {
       "nvim-treesitter/nvim-treesitter",

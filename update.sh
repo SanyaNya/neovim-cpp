@@ -1,2 +1,2 @@
 #!/bin/sh
-nvim --headless "+Lazy! update" "+MasonUpdate" "+MasonInstallAll" "+qa"
+nvim --headless "+Lazy! update" "+qa"

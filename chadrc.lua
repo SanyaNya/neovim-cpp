@@ -50,6 +50,17 @@ M.ui = {
       border = "single",
     },
   },
+
+  mason = {
+    cmd = true,
+    pkgs = {
+      "clangd",
+      "clang-format",
+      "codelldb",
+      "lua-language-server",
+      "tree-sitter-cli",
+    },
+  },
 }
 
 return M
