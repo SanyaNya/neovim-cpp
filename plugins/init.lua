@@ -72,10 +72,7 @@ return {
     {
       "nvim-treesitter/nvim-treesitter",
       opts = {
-        ensure_installed = {
-          "c", "cpp", "cmake", "asm",
-          "lua", "luadoc", "printf", "vim", "vimdoc",
-        },
+        auto_install = true,
       },
     },
   }
